@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by S.Dobranos on 17.11.20 15:25
+  ~ Copyright (c) 2020. All rights reserved.
+  -->
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape android:shape="oval">
+            <solid android:color="@color/colorPrimaryDark" />
+<!--            <size android:height="80dp" android:width="80dp" />-->
+        </shape>
+    </item>
+
+    <item android:state_focused="true">
+        <shape android:shape="oval">
+            <stroke android:color="@color/colorPrimaryDark" android:width="5dp" />
+<!--            <size android:height="80dp" android:width="80dp" />-->
+        </shape>
+    </item>
+
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@android:color/transparent" />
+<!--            <size android:height="80dp" android:width="80dp" />-->
+        </shape>
+    </item>
+</selector>
