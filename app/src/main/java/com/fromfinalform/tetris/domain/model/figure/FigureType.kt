@@ -5,8 +5,6 @@
 
 package com.fromfinalform.tetris.domain.model.figure
 
-import com.fromfinalform.tetris.domain.model.cell.ICell
-
 class FigureType(val id: FigureTypeId) {
     val maps = hashMapOf<FigureOrientationId, IFigureMap>()
 }

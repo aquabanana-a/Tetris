@@ -5,8 +5,7 @@
 
 package com.fromfinalform.tetris.domain.model.game
 
-import com.fromfinalform.tetris.domain.model.common.ICloneable
-import com.fromfinalform.tetris.domain.model.game.level.IGameLevel
+import com.fromfinalform.tetris.common.ICloneable
 
 interface IGameResults : ICloneable<IGameResults> {
     val level: Int

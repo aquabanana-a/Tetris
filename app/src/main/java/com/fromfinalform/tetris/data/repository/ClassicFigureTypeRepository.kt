@@ -8,17 +8,21 @@ package com.fromfinalform.tetris.data.repository
 import com.fromfinalform.tetris.R
 import com.fromfinalform.tetris.data.model.cell.EmptyCell
 import com.fromfinalform.tetris.data.model.cell.TexturedCell
-import com.fromfinalform.tetris.data.model.figure.FigureTypeBuilder
+import com.fromfinalform.tetris.domain.interactor.FigureTypeBuilder
 import com.fromfinalform.tetris.domain.model.cell.ICell
 import com.fromfinalform.tetris.domain.model.figure.FigureOrientationId
 import com.fromfinalform.tetris.domain.model.figure.FigureType
 import com.fromfinalform.tetris.domain.model.figure.FigureTypeId
-import com.fromfinalform.tetris.domain.model.figure.IFigure
 import com.fromfinalform.tetris.domain.repository.IFigureTypeRepository
+import javax.inject.Inject
 
 class ClassicFigureTypeRepository: IFigureTypeRepository {
 
     // https://tetris.wiki/Tetromino#:~:text=The%20seven%20one%2Dsided%20tetrominoes,previously%20called%20tetraminoes%20around%201999.
+
+    @Inject constructor() {
+
+    }
 
     private val figuresByTypeId = hashMapOf<FigureTypeId, FigureType>()
     override fun get(typeId: FigureTypeId): FigureType {

@@ -9,17 +9,18 @@ import android.content.Context
 import android.graphics.RectF
 import com.fromfinalform.tetris.data.model.cell.EmptyCell
 import com.fromfinalform.tetris.data.model.cell.TexturedCell
-import com.fromfinalform.tetris.data.repository.TextureRepository
+import com.fromfinalform.tetris.presentation.model.repository.TextureRepository
 import com.fromfinalform.tetris.domain.model.figure.IFigure
 import com.fromfinalform.tetris.domain.model.figure.height
 import com.fromfinalform.tetris.domain.model.figure.width
 import com.fromfinalform.tetris.domain.model.game.IGameConfig
-import com.fromfinalform.tetris.domain.model.renderer.ShaderDrawerTypeId
-import com.fromfinalform.tetris.domain.repository.ITextureRepository
-import com.fromfinalform.tetris.presentation.opengl.SceneParams
-import com.fromfinalform.tetris.presentation.opengl.renderUnit.RenderUnit
+import com.fromfinalform.tetris.presentation.model.drawer.ShaderDrawerTypeId
+import com.fromfinalform.tetris.presentation.model.repository.ITextureRepository
+import com.fromfinalform.tetris.presentation.model.renderer.SceneParams
+import com.fromfinalform.tetris.presentation.model.renderer.unit.RenderUnit
+import javax.inject.Inject
 
-class FigureRenderMapper(val context: Context) : IFigureRenderMapper {
+class FigureRenderMapper @Inject constructor(val context: Context) : IFigureRenderMapper {
 
     private var texturesRepo: ITextureRepository = TextureRepository(context) // todo: move to DI
     private var idGenerator = 0L

@@ -17,9 +17,9 @@
         android:largeHeap="true"
         tools:replace="android:allowBackup">
 
-<!--        <service android:enabled="true" android:name="com.fromfinalform.tetris.presentation.BackgroundSoundService" />-->
+<!--        <service android:enabled="true" android:name="com.fromfinalform.tetris.presentation.model.BackgroundSoundService" />-->
 
-        <activity android:name="com.fromfinalform.tetris.presentation.MainActivity"
+        <activity android:name="com.fromfinalform.tetris.presentation.view.MainActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"
             android:launchMode="singleTask">

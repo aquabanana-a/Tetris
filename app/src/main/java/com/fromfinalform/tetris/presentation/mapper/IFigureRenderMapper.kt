@@ -7,8 +7,8 @@ package com.fromfinalform.tetris.presentation.mapper
 
 import com.fromfinalform.tetris.domain.model.figure.IFigure
 import com.fromfinalform.tetris.domain.model.game.IGameConfig
-import com.fromfinalform.tetris.presentation.opengl.SceneParams
-import com.fromfinalform.tetris.presentation.opengl.renderUnit.RenderUnit
+import com.fromfinalform.tetris.presentation.model.renderer.SceneParams
+import com.fromfinalform.tetris.presentation.model.renderer.unit.RenderUnit
 
 interface IFigureRenderMapper {
     fun map(sceneParams: SceneParams, figure: IFigure, game: IGameConfig): RenderUnit

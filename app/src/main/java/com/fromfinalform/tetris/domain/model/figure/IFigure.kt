@@ -7,7 +7,7 @@ package com.fromfinalform.tetris.domain.model.figure
 
 import com.fromfinalform.tetris.data.model.cell.EmptyCell
 import com.fromfinalform.tetris.domain.model.cell.ICell
-import com.fromfinalform.tetris.domain.model.common.ICloneable
+import com.fromfinalform.tetris.common.ICloneable
 
 interface IFigure : ICloneable<IFigure> {
     val typeId: FigureTypeId

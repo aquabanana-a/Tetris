@@ -10,7 +10,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.fromfinalform.tetris.presentation.MainActivity"
+    tools:context="com.fromfinalform.tetris.presentation.view.MainActivity"
     android:background="#E1E1E1"
     android:id="@+id/vg_root">
 

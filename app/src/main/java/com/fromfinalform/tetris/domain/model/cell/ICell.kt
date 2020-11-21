@@ -5,7 +5,7 @@
 
 package com.fromfinalform.tetris.domain.model.cell
 
-import com.fromfinalform.tetris.domain.model.common.ICloneable
+import com.fromfinalform.tetris.common.ICloneable
 
 interface ICell : ICloneable<ICell> {
     var id: Long

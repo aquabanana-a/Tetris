@@ -6,6 +6,7 @@
 package com.fromfinalform.tetris.data.model.figure
 
 import com.fromfinalform.tetris.data.repository.ClassicFigureTypeRepository
+import com.fromfinalform.tetris.domain.interactor.IFigureBuilder
 import com.fromfinalform.tetris.domain.model.figure.FigureOrientationId
 import com.fromfinalform.tetris.domain.model.figure.FigureTypeId
 import com.fromfinalform.tetris.domain.model.figure.IFigure
