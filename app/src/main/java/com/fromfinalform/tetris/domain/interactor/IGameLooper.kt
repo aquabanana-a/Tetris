@@ -24,7 +24,7 @@ interface IGameLooper {
     fun withOnResultsChanged(handler: (results: IGameResults) -> Unit): IGameLooper
 
     fun withOnStartListener(handler: ()->Unit): IGameLooper
-    fun withOnStopListener(handler: ()->Unit): IGameLooper
+    fun withOnStopListener(handler: (results: IGameResults)->Unit): IGameLooper
 
     fun prepareNextLevel(): IGameLevel
     fun prepareNextFigure(): IFigure

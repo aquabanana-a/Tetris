@@ -5,6 +5,7 @@
 
 package com.fromfinalform.tetris.presentation.model.renderer.data
 
+import android.graphics.Color
 import java.io.Serializable
 import kotlin.random.Random
 
@@ -41,6 +42,7 @@ class GLColor(): Serializable {
     fun getBi() = (getB() * 255).toInt()
     fun getAi() = (getA() * 255).toInt()
 
+    constructor(color: String) : this(Color.parseColor(color))
     constructor(color: Int) : this(color.toLong())
     constructor(color: Long) : this() {
         this.a = ((color shr 24) and 0xFF) / 255f
@@ -79,6 +81,8 @@ class GLColor(): Serializable {
 
     fun toInt() = ((getAi() and 0xFF) shl 24) or ((getRi() and 0xFF) shl 16) or ((getGi() and 0xFF) shl 8) or ((getBi() and 0xFF) shl 0)
     fun toHexStr() = String.format("#%08X", (0xFFFFFFFF and toInt().toLong()))
+
+    fun toFloatArray() = floatArrayOf(getA(), getR(), getG(), getB())
 
     override fun hashCode() = toInt()
     override fun equals(other: Any?): Boolean {

@@ -7,7 +7,9 @@ package com.fromfinalform.tetris.data.model.game.classic
 
 import com.fromfinalform.tetris.domain.model.game.IGameLevel
 import com.fromfinalform.tetris.domain.model.game.IGameResults
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 class ClassicGameResults : IGameResults {
 
     override var level: Int = 0; private set

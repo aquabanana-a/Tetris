@@ -91,14 +91,25 @@ class ClassicGameLooper : IGameLooper {
         return this
     }
 
-    private var onStopHandler: (() -> Unit)? = null
-    override fun withOnStopListener(handler: () -> Unit): IGameLooper {
+    private var onStopHandler: ((results: IGameResults) -> Unit)? = null
+    override fun withOnStopListener(handler: (results: IGameResults) -> Unit): IGameLooper {
         this.onStopHandler = handler
         return this
     }
 
-    override fun onLeft() { translateImpl(-1) }
-    override fun onRight() { translateImpl(+1) }
+    override fun onLeft() {
+        if (!isStarted)
+            return
+
+        translateImpl(-1)
+    }
+
+    override fun onRight() {
+        if (!isStarted)
+            return
+
+        translateImpl(+1)
+    }
 
     private fun translateImpl(delta: Int) { synchronized(currentFigureLo) {
         val x = currentFigure!!.x + delta
@@ -112,11 +123,17 @@ class ClassicGameLooper : IGameLooper {
     } }
 
     override fun onHardDrop() { synchronized(currentFigureLo) {
+        if (!isStarted)
+            return
+
         this.hardDropSpeed = config.hardDropSpeed
         this.figureHardDroppedAtY = currentFigure?.y ?: 0f
     } }
 
     override fun onRotate() { synchronized(currentFigureLo) {
+        if (!isStarted)
+            return
+
         if (currentFigure == null)
             return
 
@@ -201,7 +218,7 @@ class ClassicGameLooper : IGameLooper {
         currentLevel = null
         currentFigure = null
 
-        onStopHandler?.invoke()
+        onStopHandler?.invoke(results.clone())
     } } } }
 
     override fun onFrame(frame: Long, timeMs: Long, deltaTimeMs: Long) { synchronized(startedLo) { synchronized(currentFigureLo) { synchronized(currentLevelLo) {

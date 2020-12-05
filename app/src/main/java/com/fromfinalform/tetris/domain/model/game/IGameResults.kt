@@ -5,9 +5,10 @@
 
 package com.fromfinalform.tetris.domain.model.game
 
+import android.os.Parcelable
 import com.fromfinalform.tetris.common.ICloneable
 
-interface IGameResults : ICloneable<IGameResults> {
+interface IGameResults : ICloneable<IGameResults>, Parcelable {
     val level: Int
     val speed: Float
     val points: Long

@@ -17,8 +17,8 @@ android {
         applicationId "com.fromfinalform.tetris"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 3
-        versionName "1.01"
+        versionCode 4
+        versionName "1.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -52,3 +52,5 @@ dependencies {
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
     implementation "com.google.dagger:dagger:$dagger_version"
 }
+
+apply plugin: 'kotlin-android-extensions'

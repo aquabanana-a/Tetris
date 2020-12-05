@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by S.Dobranos on 03.12.20 23:51
+  ~ Copyright (c) 2020. All rights reserved.
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/side_r"
+        android:layout_width="12dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="2dp"
+        android:src="@drawable/bg_container_26_side"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/corner_tr"
+        app:layout_constraintBottom_toTopOf="@id/corner_br"/>
+
+    <ImageView
+        android:id="@+id/side_l"
+        android:layout_width="12dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="2dp"
+        android:src="@drawable/bg_container_26_side"
+        android:scaleType="fitXY"
+        android:scaleX="-1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/corner_tl"
+        app:layout_constraintBottom_toTopOf="@id/corner_bl" />
+
+    <ImageView
+        android:id="@+id/side_t"
+        android:layout_width="0dp"
+        android:layout_height="12dp"
+        android:layout_marginTop="1dp"
+        android:src="@drawable/bg_container_26_top"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/corner_tl"
+        app:layout_constraintEnd_toStartOf="@id/corner_tr" />
+
+    <ImageView
+        android:id="@+id/side_b"
+        android:layout_width="0dp"
+        android:layout_height="12dp"
+        android:layout_marginBottom="1dp"
+        android:src="@drawable/bg_container_26_top"
+        android:scaleType="fitXY"
+        android:scaleY="-1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/corner_bl"
+        app:layout_constraintEnd_toStartOf="@id/corner_br" />
+
+    <ImageView
+        android:id="@+id/corner_tl"
+        android:layout_width="124dp"
+        android:layout_height="40dp"
+        android:scaleX="-1"
+        android:src="@drawable/bg_container_26_corner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/corner_tr"
+        android:layout_width="124dp"
+        android:layout_height="40dp"
+        android:src="@drawable/bg_container_26_corner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/corner_bl"
+        android:layout_width="124dp"
+        android:layout_height="40dp"
+        android:scaleX="-1"
+        android:scaleY="-1"
+        android:src="@drawable/bg_container_26_corner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:id="@+id/corner_br"
+        android:layout_width="124dp"
+        android:layout_height="40dp"
+        android:scaleY="-1"
+        android:src="@drawable/bg_container_26_corner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

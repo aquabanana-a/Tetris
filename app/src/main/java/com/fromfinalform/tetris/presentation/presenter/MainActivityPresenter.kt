@@ -6,7 +6,6 @@
 package com.fromfinalform.tetris.presentation.presenter
 
 import android.content.Context
-import android.media.AudioManager
 import android.media.SoundPool
 import android.opengl.GLSurfaceView
 import androidx.lifecycle.Lifecycle
@@ -29,6 +28,7 @@ import com.fromfinalform.tetris.presentation.model.renderer.Size
 import com.fromfinalform.tetris.presentation.model.renderer.unit.IRenderUnit
 import com.fromfinalform.tetris.presentation.model.renderer.unit.RenderUnit
 import com.fromfinalform.tetris.presentation.model.repository.StaticShaderDrawerRepository
+import com.fromfinalform.tetris.presentation.view.GameOverFragment
 
 class MainActivityPresenter(val view: IMainActivityView) : LifecycleObserver {
 
@@ -36,6 +36,8 @@ class MainActivityPresenter(val view: IMainActivityView) : LifecycleObserver {
         fun requestRender()
         fun setRenderMode(mode: Int)
         fun onPostCreated()
+
+        fun openGameOverScreen(results: IGameResults)
     }
 
     private lateinit var game: GameComponent
@@ -183,11 +185,13 @@ class MainActivityPresenter(val view: IMainActivityView) : LifecycleObserver {
 
                             playBackSound()
                         }
-                        .withOnStopListener {
+                        .withOnStopListener { results ->
                             gameStoppedHandler?.invoke()
                             glViewRenderer.stop()
 
                             mediaPool?.stop()
+
+                            view.openGameOverScreen(results)
                         }
                         .withOnResultsChanged { results ->
                             resultsChangedHandler?.invoke(results)
@@ -202,7 +206,7 @@ class MainActivityPresenter(val view: IMainActivityView) : LifecycleObserver {
         if(!isGameStarted)
             return
 
-        mediaPool?.playSound(arrayListOf(R.raw.retro_funk/*, R.raw.surf*/).random(), .25f) {
+        mediaPool?.playSound(arrayListOf(R.raw.retro_funk, R.raw.surf).random(), .25f) {
             playBackSound()
         }
     }

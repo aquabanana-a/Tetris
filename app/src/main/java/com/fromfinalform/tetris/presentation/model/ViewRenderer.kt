@@ -13,6 +13,7 @@ import com.fromfinalform.tetris.presentation.model.opengl.common.GLUtils
 import com.fromfinalform.tetris.presentation.model.renderer.ISize
 import com.fromfinalform.tetris.presentation.model.renderer.RendererListener
 import com.fromfinalform.tetris.presentation.model.renderer.SceneParams
+import com.fromfinalform.tetris.presentation.model.renderer.data.GLColor
 import javax.microedition.khronos.egl.EGLConfig
 import javax.microedition.khronos.opengles.GL10
 import kotlin.math.max
@@ -57,7 +58,7 @@ class ViewRenderer(override var sceneSize: ISize) : IRenderer {
     private var frames = 0L
     private var startTime = 0L
     private var lastFrameTimeMs = 0L
-    private var bgARGB = floatArrayOf(1f, .5f, .5f, 1f)
+    private var bgARGB = GLColor("#007099").toFloatArray()
 
     private var handler: RendererListener? = null
     private var updater: (()-> Unit)? = null

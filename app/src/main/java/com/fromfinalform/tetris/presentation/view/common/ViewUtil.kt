@@ -5,9 +5,24 @@
 
 package com.fromfinalform.tetris.presentation.view.common
 
+import android.content.res.Resources
 import android.view.View
 import android.view.ViewGroup
 
+val Int.dp: Int
+    get() = (this * Resources.getSystem().displayMetrics.density).toInt()
+
+val Int.dpf: Float
+    get() = this * Resources.getSystem().displayMetrics.density
+
+val Float.dp: Float
+    get() = this * Resources.getSystem().displayMetrics.density
+
+val Int.sp: Float
+    get() = this / Resources.getSystem().displayMetrics.scaledDensity
+
+val Float.sp: Float
+    get() = this / Resources.getSystem().displayMetrics.scaledDensity
 
 fun View.setMarginLeft(value: Int) {
     val params = layoutParams as ViewGroup.MarginLayoutParams
