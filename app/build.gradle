@@ -17,7 +17,7 @@ android {
         applicationId "com.fromfinalform.tetris"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 4
+        versionCode 6
         versionName "1.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

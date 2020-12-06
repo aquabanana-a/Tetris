@@ -15,6 +15,7 @@ import androidx.fragment.app.FragmentActivity
 import com.fromfinalform.tetris.R
 import com.fromfinalform.tetris.presentation.presenter.GameOverPresenter
 import com.fromfinalform.tetris.presentation.presenter.SwitchScreenMgr
+import com.fromfinalform.tetris.presentation.view.common.format
 
 class GameOverFragment : Fragment(), GameOverPresenter.IGameOverView {
 
@@ -55,10 +56,10 @@ class GameOverFragment : Fragment(), GameOverPresenter.IGameOverView {
     }
 
     override fun setResultLevel(level: Int) {
-        tvLevel.text = "level: ${level}"
+        tvLevel.text = format(R.string.game_over_level, level)
     }
 
     override fun setResultPoints(points: Long) {
-        tvScore.text = "score: ${points}"
+        tvScore.text = format(R.string.game_over_score, points)
     }
 }

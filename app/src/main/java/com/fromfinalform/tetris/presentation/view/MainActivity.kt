@@ -21,9 +21,7 @@ import com.fromfinalform.tetris.presentation.model.opengl.EGL10ContextFactory
 import com.fromfinalform.tetris.presentation.presenter.GameOverPresenter.Companion.RESULTS_DATA
 import com.fromfinalform.tetris.presentation.presenter.MainActivityPresenter
 import com.fromfinalform.tetris.presentation.presenter.SwitchScreenMgr
-import com.fromfinalform.tetris.presentation.view.common.dp
-import com.fromfinalform.tetris.presentation.view.common.setMarginTop
-import com.fromfinalform.tetris.presentation.view.common.vibrate
+import com.fromfinalform.tetris.presentation.view.common.*
 
 class MainActivity : AppCompatActivity(), MainActivityPresenter.IMainActivityView {
 
@@ -65,6 +63,9 @@ class MainActivity : AppCompatActivity(), MainActivityPresenter.IMainActivityVie
 
         vRoot = findViewById(R.id.vg_root)
         vgCanvas = findViewById(R.id.vg_canvas_group)
+
+        tvLevel = vRoot.findViewById(R.id.tv_Level)
+        tvScore = vRoot.findViewById(R.id.tv_score_value)
     }
 
     override fun onPostCreated() {
@@ -98,14 +99,11 @@ class MainActivity : AppCompatActivity(), MainActivityPresenter.IMainActivityVie
         vHGap = vRoot.findViewById(R.id.v_hgap)
         btnStartTxt = vRoot.findViewById(R.id.btn_start_txt)
 
-        presenter.withOnGameStarted { vRoot.post { btnStartTxt.text = "Stop" } }
-        presenter.withOnGameStopped { vRoot.post { btnStartTxt.text = "Start" } }
-        presenter.withOnResultsChanged { results ->
-            vRoot.post {
-                tvLevel.text = "Level: ${results.level}"
-                tvScore.text = "${results.points}"
-            }
-        }
+        presenter.withOnGameStarted { vRoot.post { btnStartTxt.text = string(R.string.main_btn_stop) } }
+        presenter.withOnGameStopped { vRoot.post { btnStartTxt.text = string(R.string.main_btn_start) } }
+
+        presenter.withOnResultsChanged { refreshResults(it) }
+        refreshResults(null)
 
         glSurface = findViewById(R.id.gl_surface)
         glSurface.setEGLContextFactory(EGL10ContextFactory())
@@ -150,10 +148,12 @@ class MainActivity : AppCompatActivity(), MainActivityPresenter.IMainActivityVie
             }
             false
         }
-
-        tvLevel = vRoot.findViewById(R.id.tv_Level)
-        tvScore = vRoot.findViewById(R.id.tv_score_value)
     }
+
+    private fun refreshResults(results: IGameResults?) { vRoot.post {
+        tvLevel.text = format(R.string.main_level, results?.level ?: 0)
+        tvScore.text = "${results?.points ?: 0}"
+    } }
 
     override fun openGameOverScreen(results: IGameResults) {
         val bundle = Bundle()

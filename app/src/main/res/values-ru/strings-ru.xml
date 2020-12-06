@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by S.Dobranos on 06.12.20 12:51
+  ~ Copyright (c) 2020. All rights reserved.
+  -->
+
+<resources>
+    <string name="app_name">Тетрис</string>
+
+    <string name="main_btn_start">Играть</string>
+    <string name="main_btn_stop">Стоп</string>
+    <string name="main_level">Ур.: [p]</string>
+    <string name="main_score">счет:</string>
+
+    <string name="game_over_title">ПОТРАЧЕНО!</string>
+    <string name="game_over_level">уровень: [p]</string>
+    <string name="game_over_score">счет: [p]</string>
+    <string name="game_over_play_again">Играть снова</string>
+</resources>

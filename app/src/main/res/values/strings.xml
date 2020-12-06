@@ -5,4 +5,14 @@
 
 <resources>
     <string name="app_name">Tetris</string>
+
+    <string name="main_btn_start">Play</string>
+    <string name="main_btn_stop">Stop</string>
+    <string name="main_level">Level: [p]</string>
+    <string name="main_score">score:</string>
+
+    <string name="game_over_title">GAME OVER!</string>
+    <string name="game_over_level">level: [p]</string>
+    <string name="game_over_score">score: [p]</string>
+    <string name="game_over_play_again">Play again</string>
 </resources>
