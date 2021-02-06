@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity(), MainActivityPresenter.IMainActivityVie
     private lateinit var tvScore: TextView
 
     private var presenter: MainActivityPresenter
+    private var refreshLayoutFlag = false // hotfix
 
     init {
         presenter = MainActivityPresenter(this)
@@ -66,10 +67,17 @@ class MainActivity : AppCompatActivity(), MainActivityPresenter.IMainActivityVie
 
         tvLevel = vRoot.findViewById(R.id.tv_Level)
         tvScore = vRoot.findViewById(R.id.tv_score_value)
+
+        refreshLayoutFlag = true
     }
 
     override fun onPostCreated() {
         presenter.winOnSceneConfigured { params ->
+            // hotfix
+            if (!refreshLayoutFlag)
+                return@winOnSceneConfigured
+            refreshLayoutFlag = false
+
             vRoot.post {
                 val appPadding = (2 + 2).dp
                 val mainFramePadding = (14 + 14).dp
